@@ -7,6 +7,21 @@
   list-style: none;
 }
 
+body::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+  /* position: absolute; */
+}
+
+/* body::-webkit-scrollbar-track {
+  background: crimson;  color of the tracking area 
+} */
+
+body::-webkit-scrollbar-thumb {
+  background-color: lightgray; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  /* border: 3px solid orange; creates padding around scroll thumb */
+}
+
 .App {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
