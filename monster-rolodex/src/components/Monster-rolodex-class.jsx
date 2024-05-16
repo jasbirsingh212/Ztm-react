@@ -39,7 +39,7 @@ class MonsterRolodexClass extends Component {
   render() {
     let { searchTerm, listOfMonster } = this.state;
 
-    console.log("Before filter ", this.state);
+    //console.log("Before filter ", this.state);
 
     listOfMonster =
       listOfMonster?.length > 0 &&
@@ -47,7 +47,7 @@ class MonsterRolodexClass extends Component {
         item.name.toLowerCase().includes(searchTerm)
       );
 
-    console.log("After filter ", this.state);
+    //console.log("After filter ", this.state);
 
     return (
       <div>
