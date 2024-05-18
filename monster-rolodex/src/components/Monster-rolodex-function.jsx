@@ -21,7 +21,7 @@ function MonsterRolodexFunc() {
 
   useEffect(() => {
     const filteredMonster = listOfMonster.filter((item) =>
-      item.name.toLowerCase().includes(searchTerm)
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilterMonster(filteredMonster);
   }, [listOfMonster, searchTerm]);
