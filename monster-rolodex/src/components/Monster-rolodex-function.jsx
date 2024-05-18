@@ -48,7 +48,7 @@ function MonsterRolodexFunc() {
             return (
               <li className="card" key={id}>
                 <img
-                  src={`https://robohash.org/${id}?set=set2&size=180x180`}
+                  src={`https://robohash.org/${id}?set=set2&size=250x250`}
                   alt={name}
                   className="card-img"
                 />
