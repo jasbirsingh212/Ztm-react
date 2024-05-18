@@ -4,8 +4,8 @@ import MonsterRolodexFunc from "./components/Monster-rolodex-function";
 function App() {
   return (
     <div className="App container">
-      <MonsterRolodexClass />
-      {/* <MonsterRolodexFunc /> */}
+      {/* <MonsterRolodexClass /> */}
+      <MonsterRolodexFunc />
     </div>
   );
 }

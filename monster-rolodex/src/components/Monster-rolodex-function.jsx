@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 function MonsterRolodexFunc() {
   const [listOfMonster, setListOfMonster] = useState([]);
+  const [filteredMonster, setFilterMonster] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleChange = (e) => {
@@ -10,7 +11,7 @@ function MonsterRolodexFunc() {
   };
 
   useEffect(() => {
-    fetch("")
+    fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
       .then((data) => setListOfMonster(data))
       .catch((err) => {
@@ -18,28 +19,45 @@ function MonsterRolodexFunc() {
       });
   }, []);
 
+  useEffect(() => {
+    const filteredMonster = listOfMonster.filter((item) =>
+      item.name.toLowerCase().includes(searchTerm)
+    );
+    setFilterMonster(filteredMonster);
+  }, [listOfMonster, searchTerm]);
+
   return (
     <div>
-      <h1>Monster rolodex</h1>
-      <input
-        type="text"
-        name="search-monster"
-        id="search-monster"
-        onChange={handleChange}
-        value={searchTerm}
-      />
-      {listOfMonster?.length > 0 &&
-        listOfMonster.map((item, idx) => {
-          const { img, name, desc } = item;
+      <div className="search-container">
+        <h1 className="app-heading">Monster rolodex</h1>
+        <input
+          type="text"
+          name="search-monster"
+          id="search-monster"
+          onChange={handleChange}
+          value={searchTerm}
+          className="search-input"
+          placeholder="Search Monster"
+        />
+      </div>
+      <ul className="card-list">
+        {filteredMonster?.length > 0 &&
+          filteredMonster.map((item) => {
+            const { id, name, email } = item;
 
-          return (
-            <div key={idx}>
-              <img src={img} alt={name} />
-              <h2>{name}</h2>
-              <p>{desc}</p>
-            </div>
-          );
-        })}
+            return (
+              <li className="card" key={id}>
+                <img
+                  src={`https://robohash.org/${id}?set=set2&size=180x180`}
+                  alt={name}
+                  className="card-img"
+                />
+                <h2 className="card-name">{name}</h2>
+                <p className="card-email">{email}</p>
+              </li>
+            );
+          })}
+      </ul>
     </div>
   );
 }
