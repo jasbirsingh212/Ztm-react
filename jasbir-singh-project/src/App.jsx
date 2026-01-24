@@ -5,7 +5,7 @@ function App() {
   let [first, setfirst] = useState("jasbir");
 
   const handleClick = () => {
-    first = "singh";
+    setfirst("singh");
   };
 
   console.log(first);
