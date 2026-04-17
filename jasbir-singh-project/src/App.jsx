@@ -1,23 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
+import CardList from "./components/CardList";
+import Heading from "./components/Heading";
+import SearchInput from "./components/SearchInput";
 
 function App() {
-  let [first, setfirst] = useState("jasbir");
+  const [users, setUsers] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
+  const [filteredUsers, setFilteredUsers] = useState([]);
 
-  const handleClick = () => {
-    setfirst("singh");
+  const handleChange = (event) => {
+    setSearchValue(event.target.value);
   };
 
-  console.log(first);
+  useEffect(() => {
+    // Fetching data or other side effects can be handled here
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((users) => setUsers(users));
+  }, []);
+
+  useEffect(() => {
+    const filteredUsers = users.filter((user) =>
+      user.name.toLowerCase().includes(searchValue.toLowerCase()),
+    );
+    setFilteredUsers(filteredUsers);
+  }, [searchValue, users]);
 
   return (
-    <>
-      {console.log(first)}
-      <div>
-        Hello World! {first}
-        <button onClick={handleClick}>Change First</button>
-      </div>
-    </>
+    <main className="App">
+      <Heading />
+      <SearchInput handleChange={handleChange} />
+      <CardList cards={filteredUsers} />
+    </main>
   );
 }
 
