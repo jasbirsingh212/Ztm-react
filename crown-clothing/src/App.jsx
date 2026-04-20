@@ -1,7 +1,9 @@
+import CategoryContainer from "./components/CategoryContainer";
+
 const App = () => {
   return (
-    <main>
-      <h1>Crown Clothing</h1>
+    <main className="App">
+      <CategoryContainer />
     </main>
   );
 };
