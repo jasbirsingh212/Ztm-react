@@ -1,4 +1,4 @@
-import CategoryContainer from "../../components/categoriesContainer/CategoryContainer";
+import CategoryContainer from "../../components/CategoriesContainer/CategoryContainer.jsx";
 
 const Home = () => {
   return (
