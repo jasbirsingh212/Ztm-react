@@ -1,9 +1,9 @@
-import CategoryContainer from "./components/CategoriesContainer/CategoryContainer";
+import Home from "./routes/Home/Home.jsx";
 
 const App = () => {
   return (
     <main className="App">
-      <CategoryContainer />
+      <Home />
     </main>
   );
 };
