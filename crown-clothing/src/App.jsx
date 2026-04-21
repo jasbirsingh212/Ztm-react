@@ -1,9 +1,12 @@
+import { Route, Routes } from "react-router";
 import Home from "./routes/Home/Home.jsx";
 
 const App = () => {
   return (
     <main className="App">
-      <Home />
+      <Routes>
+        <Route path="/home" element={<Home />} />
+      </Routes>
     </main>
   );
 };
