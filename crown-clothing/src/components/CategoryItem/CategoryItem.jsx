@@ -4,7 +4,7 @@ const CategoryItem = ({ category }) => {
   const { imageUrl, title } = category;
   return (
     <div
-      className={`category-item-container ${title === "Womens" || title === "Mens" ? "height-300" : ""}`}
+      className={`category-item-container ${title === "Womens" || title === "Mens" ? "height-350" : ""}`}
     >
       <div
         className="background-image"
